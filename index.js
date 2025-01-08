@@ -21,6 +21,24 @@ function handleSearch() {
 						city.description
 					);
 				}
+			} else if (input === "temples" || input === "temple") {
+				for (let temple of data.temples) {
+					results.innerHTML += createCard(
+						temple.imageUrl,
+						temple.name,
+						temple.description
+					);
+				}
+			} else if (input === "beaches" || input === "beach") {
+				for (let beach of data.beaches) {
+					results.innerHTML += createCard(
+						beach.imageUrl,
+						beach.name,
+						beach.description
+					);
+				}
+			} else {
+				results.innerHTML += "No results found";
 			}
 		});
 }
