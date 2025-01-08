@@ -40,6 +40,19 @@ nav a, .title-container {
   font-size: 22px;
 }
 
+.link-container {
+  width: 30%;
+}
+
+.link-container ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.link-container a {
+  cursor: pointer;
+}
+
 .input-container {
   background-color: white;
   width: 34%;
@@ -61,6 +74,14 @@ nav a, .title-container {
   height: 28px;
   width: 60px;
   margin: 0 2px;
+}
+
+.input-container button:hover {
+  cursor: pointer;
+  color: #007679;
+  background-color: white;
+  transition: .4s;
+  border: 1px solid #007679;
 }
 
 .input-container #searchIcon {
@@ -89,6 +110,7 @@ main {
   height: 90vh;
   width: 100%;
   background-size: cover;
+  display: flex;
 }
 
 /* ICONS */
@@ -119,4 +141,45 @@ main {
 .icons .fa-brands:hover {
   cursor: pointer;
   opacity: 1;
+}
+
+/* PRESENTATION */
+.presentation {
+  width: 40%;
+  margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.presentation h2 {
+  color: white;
+  opacity: .9;
+  font-size: 86px;
+  margin-bottom: 60px;
+}
+
+.presentation p {
+  color: white;
+  opacity: .9;
+  line-height: 26px;
+  width: 60%;
+  margin-bottom: 60px;
+}
+
+.presentation button {
+  border: none;
+  background-color: #007679;
+  color: white;
+  border-radius: 5px;
+  height: 42px;
+  width: 160px;
+  border: 1px solid white;
+}
+
+.presentation button:hover {
+  cursor: pointer;
+  color: #007679;
+  background-color: white;
+  transition: .4s;
 }
