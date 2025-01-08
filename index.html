@@ -4,14 +4,14 @@
 		<meta charset="UTF-8" />
 		<title>Travel Recommendation</title>
 		<link rel="stylesheet" href="./styles.css" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Material+Icons"
-			rel="stylesheet" />
+		<script
+			src="https://kit.fontawesome.com/0b2a8a50e1.js"
+			crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<nav>
 			<div class="title-container">
-				<i class="material-icons">flight</i>
+				<i class="fa-solid fa-plane"></i>
 				<h1>TravelBloom</h1>
 			</div>
 
@@ -30,13 +30,21 @@
 							id="search-input"
 							placeholder="Enter a destination or a keyword" />
 					</li>
-					<i class="material-icons" id="searchIcon">search</i>
+					<i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
 					<li><button id="btnSearch">Search</button></li>
 					<li><button id="btnClear">Clear</button></li>
 				</ul>
 			</div>
 		</nav>
-		<main></main>
+		<main>
+			<div class="icons">
+				<span></span>
+				<i class="fa-brands fa-twitter"></i>
+				<i class="fa-brands fa-facebook-f"></i>
+				<i class="fa-brands fa-instagram"></i>
+				<i class="fa-brands fa-youtube"></i>
+			</div>
+		</main>
 		<script src="./index.js"></script>
 	</body>
 </html>
