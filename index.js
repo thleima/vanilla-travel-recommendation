@@ -40,6 +40,10 @@ function handleSearch() {
 			} else {
 				results.innerHTML += "No results found";
 			}
+		})
+		.catch((error) => {
+			console.log("Error fetching data : ", e);
+			results.innerHTML += "Error";
 		});
 }
 
