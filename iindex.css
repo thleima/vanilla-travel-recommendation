@@ -5,7 +5,7 @@
   --white: #ffffff;
   --title-big: 56px;
   --title-small: 36px;
-  --text-big: 20px;
+  --text-big: 18px;
   --text-small: 16px;
 }
 *{
@@ -153,4 +153,31 @@ main {
 }
 #home-content h2, p, button {
   margin: 20px 0;
+}
+/* MAIN - About Page */
+.aboutpage {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+#about p {
+  padding: 20px;
+  margin-right: 20px;
+  border-radius: 6px;
+  background-color:  rgba(77, 82, 82, 0.6);
+  
+}
+.team-card{
+  border-radius: 6px;
+  background-color:  rgba(77, 82, 82, 0.6);
+  margin: 0 20px;
+  padding: 12px;
+}
+.team-card h4{
+  margin-left: 6px;
+}
+.team-card span{
+  background-color: var(--white);
+  padding: 6px;
+  border-radius: 0 10px 10px 0;
+
 }

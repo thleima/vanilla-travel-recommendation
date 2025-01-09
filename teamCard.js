@@ -5,12 +5,12 @@ const team = [
 	{
 		name: "Celina Thomas",
 		description: "Celina is responsible for...",
-		role: "Team Lead",
+		role: "TeamLead",
 	},
 	{
 		name: "Myke Tysen",
 		description: "Myke is responsible for...",
-		role: "Delivery Head",
+		role: "DeliveryHead",
 	},
 ];
 
@@ -24,12 +24,12 @@ for (let people of team) {
 
 function teamCard(name, description, role) {
 	const card = `<div class="team-card">
-							<div class="user">
+							<div class="user flex">
 								<i class="fa-regular fa-user"></i>
 								<h4>${name}</h4>
 							</div>
 							<p>${description}</p>
-							<span>${role}</span>
+							<span>#${role}</span>
 						</div>`;
 	return card;
 }
