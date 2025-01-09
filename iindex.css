@@ -30,7 +30,7 @@ input {
   outline: none;
 }
 button {
-  border: none;
+  border: 1px solid var(--white);
   background-color: var(--green);
   color: white;
 }

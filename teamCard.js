@@ -15,8 +15,10 @@ const team = [
 ];
 
 for (let people of team) {
-	teamCardContainer.appendChild(
-		teamCard(people.name, people.description, people.role)
+	teamCardContainer.innerHTML += teamCard(
+		people.name,
+		people.description,
+		people.role
 	);
 }
 
