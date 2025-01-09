@@ -3,7 +3,10 @@
   --darkgreen: #192727;
   --green: #007679;
   --white: #ffffff;
-
+  --title-big: 56px;
+  --title-small: 36px;
+  --text-big: 20px;
+  --text-small: 16px;
 }
 *{
   margin: 0;
@@ -16,6 +19,25 @@ body {
   height: 100vh;;
   width: 100vw;
 }
+h2 {
+  font-size: var(--title-big);
+  opacity: .9;
+  color: var(--white)
+}
+p{
+  font-size: var(--text-big);
+  opacity: .9;
+  color: var(--white)
+}
+
+@media only screen and (max-width: 860px){
+  h2{
+    font-size: var(--title-small)
+  }
+  p{
+    font-size: var(--text-small);
+  }
+}
 a {
   cursor: pointer;
   text-decoration: none;
@@ -23,7 +45,6 @@ a {
 }
 a:hover{
   color: var(--green);
-  transition: .5;
 }
 input {
   border: none;
@@ -38,7 +59,6 @@ button:hover{
   cursor: pointer;
   color: var(--green);
   background-color: var(--white);
-  transition: .4s;
   border: 1px solid var(--green);
 }
 .flex {
@@ -116,7 +136,21 @@ main {
   border: 1px solid red;
   position: absolute;
   margin-left: 6%;
-  width: 100%;
-  height: 100vh;
-
+  width: 94%;
+  height: 90vh;
+}
+/* MAIN - HomePage */
+#home-content {
+  border: 1px solid yellow;
+  width: 50%;
+  justify-content: center;
+  flex-direction: column;
+}
+#home-content button {
+  width: 30%;
+  height: 40px;
+  border-radius: 6px;
+}
+#home-content h2, p, button {
+  margin: 20px 0;
 }
