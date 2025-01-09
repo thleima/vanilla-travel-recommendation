@@ -81,3 +81,32 @@ button:hover{
   margin-left: 4px;
   border-radius: 30px;
 }
+/* MAIN - BackGround */
+main {
+  background-image: 
+  linear-gradient(0.25turn, rgba(0, 118, 121, .9), rgba(117, 19, 93, 0.1)),
+  url('./media/city-skyline.jpg');
+  height: 90vh;
+  width: 100%;
+  padding: 0 20px;
+}
+/* MAIN - Social Icons */
+.social-icons {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-icons span {
+  background-color: var(--white);
+  height: 40%;
+  width: 1px;
+  opacity: .8;
+  margin: 40px 0;
+}
+
+.social-icons .fa-brands {
+  font-size: 28px;
+  opacity: .8;
+  margin: 20px 0;
+}
