@@ -2,6 +2,7 @@ const homeComponent = document.querySelector("#home-component");
 const aboutComponent = document.querySelector("#about-component");
 const contactComponent = document.querySelector("#contact-component");
 const mainComponent = document.querySelector("#main");
+const navbarSearch = document.querySelector(".navbar-search");
 
 const homeLink = document.querySelector("#home-link");
 const aboutLink = document.querySelector("#about-link");
@@ -15,16 +16,19 @@ function showComponent(selected) {
 	switch (selected.getAttribute("id")) {
 		case "home-component":
 			changeVisibility(homeComponent, "visible");
+			changeVisibility(navbarSearch, "visible");
 			changeVisibility(aboutComponent, "hidden");
 			changeVisibility(contactComponent, "hidden");
 			break;
 		case "about-component":
 			changeVisibility(aboutComponent, "visible");
+			changeVisibility(navbarSearch, "hidden");
 			changeVisibility(homeComponent, "hidden");
 			changeVisibility(contactComponent, "hidden");
 			break;
 		case "contact-component":
 			changeVisibility(contactComponent, "visible");
+			changeVisibility(navbarSearch, "hidden");
 			changeVisibility(homeComponent, "hidden");
 			changeVisibility(aboutComponent, "hidden");
 			break;
