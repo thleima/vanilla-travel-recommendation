@@ -31,37 +31,35 @@ async function fetchData(url) {
 
 fetchData(file);
 
+function getCountry(array, inp) {
+	let value;
+	for (let el of array) {
+		if (el.name.toLowerCase() === inp) {
+			value = el.cities;
+			break;
+		}
+	}
+	return value;
+}
+
 function handleSearch() {
 	results.innerHTML = "";
 	const input = searchInput.value.trim().toLowerCase();
-	// ** Search within the keywords array defined
+	let to_print = [];
+	// ** Search within the keywords object defined
 	for (let theme in searchKeywords) {
 		// ** Check if the word searched, is included in keywords
 		if (searchKeywords[theme].includes(input)) {
 			// ** YES ? Get the element from data
 			// theme = the key to search in data
 			console.log(`data theme is ${theme} :`, data[theme]);
-			let find;
-			for (let element of data[theme]) {
-				element.name.toLowerCase() === input ? (find = element.cities) : false;
+			if (getCountry(data[theme], input)) {
+				to_print = getCountry(data[theme], input);
+			} else {
+				to_print = data[theme];
 			}
-			find.forEach(
-				(item) =>
-					(results.innerHTML += createCard(
-						item.imageUrl,
-						item.name,
-						item.description
-					))
-			);
-		} else {
-			console.log("no");
+			console.log("to print : ", to_print);
 		}
-		// const sydney = data.countries[0].cities[0];
-		// results.innerHTML += createCard(
-		// 	sydney.imageUrl,
-		// 	sydney.name,
-		// 	sydney.description
-		// );
 	}
 }
 
@@ -74,5 +72,6 @@ function createCard(img, name, description) {
 }
 
 function handleClear() {
+	searchInput.value = "";
 	results.innerHTML = "";
 }
