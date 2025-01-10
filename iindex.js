@@ -53,6 +53,16 @@ function handleSearch() {
 			// ** YES ? Get the element from data
 			// theme = the key to search in data
 			console.log(`data theme is ${theme} :`, data[theme]);
+			if (theme === "beaches" || "temples") {
+				data[theme].forEach((item) => {
+					results.innerHTML += createCard(
+						item.imageUrl,
+						item.name,
+						item.description
+					);
+				});
+			}
+
 			if (getCountry(data[theme], input)) {
 				to_print = getCountry(data[theme], input);
 				to_print.forEach((item) => {
