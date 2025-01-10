@@ -55,10 +55,25 @@ function handleSearch() {
 			console.log(`data theme is ${theme} :`, data[theme]);
 			if (getCountry(data[theme], input)) {
 				to_print = getCountry(data[theme], input);
+				to_print.forEach((item) => {
+					results.innerHTML += createCard(
+						item.imageUrl,
+						item.name,
+						item.description
+					);
+				});
 			} else {
 				to_print = data[theme];
+				to_print.forEach((item) => {
+					for (let city of item.cities) {
+						results.innerHTML += createCard(
+							city.imageUrl,
+							city.name,
+							city.description
+						);
+					}
+				});
 			}
-			console.log("to print : ", to_print);
 		}
 	}
 }
