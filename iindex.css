@@ -156,7 +156,6 @@ main {
 }
 /* HomePage - results */
 #home-results{
-  border: 1px solid orange;
   width: 50%;
   overflow-y: scroll;
   box-sizing: content-box;

@@ -31,49 +31,43 @@ async function fetchData(url) {
 
 fetchData(file);
 
-function getCountry(array, inp) {
-	let value;
-	for (let el of array) {
-		if (el.name.toLowerCase() === inp) {
-			value = el.cities;
+function isWordValid(keywords, inp) {
+	let isValid = false;
+	for (let th in keywords) {
+		if (keywords[th].includes(inp)) {
+			isValid = true;
 			break;
 		}
 	}
-	return value;
+	return isValid;
 }
 
 function handleSearch() {
 	results.innerHTML = "";
 	const input = searchInput.value.trim().toLowerCase();
+	let data_to_print;
+	if (!isWordValid(searchKeywords, input)) {
+		results.innerHTML = `<div class="card-container"><p>No results found. Try a new search !</p></div>`;
+	}
 	// ** Search within the keywords object defined
 	for (let theme in searchKeywords) {
 		// ** Check if the word searched, is included in keywords
 		if (searchKeywords[theme].includes(input)) {
-			// ** YES ? Get the element from data
-			// theme = the key to search in data
-			console.log(`data theme is ${theme} :`, data[theme]);
+			// ** YES ? Check what is the theme associated
 			if (theme === "beaches" || theme === "temples") {
-				data[theme].forEach((item) => {
-					results.innerHTML += createCard(
-						item.imageUrl,
-						item.name,
-						item.description
-					);
-				});
-			} else if (theme === "countries") {
-				if (getCountry(data[theme], input)) {
-					to_print = getCountry(data[theme], input);
-					to_print.forEach((item) => {
-						results.innerHTML += createCard(
-							item.imageUrl,
-							item.name,
-							item.description
-						);
-					});
+				data_to_print = data[theme];
+				iterateAndDisplay(data_to_print);
+			}
+			if (theme === "countries") {
+				const allCountries = data[theme];
+				// ** Check if it's a search for 1 country
+				if (getCountry(allCountries, input)) {
+					data_to_print = getCountry(allCountries, input);
+					iterateAndDisplay(data_to_print);
 				} else {
-					to_print = data[theme];
-					to_print.forEach((item) => {
-						for (let city of item.cities) {
+					// ** Or all countries
+					allCountries.forEach((country) => {
+						for (let city of country.cities) {
 							results.innerHTML += createCard(
 								city.imageUrl,
 								city.name,
@@ -85,6 +79,23 @@ function handleSearch() {
 			}
 		}
 	}
+}
+
+function iterateAndDisplay(array) {
+	array.forEach((item) => {
+		results.innerHTML += createCard(item.imageUrl, item.name, item.description);
+	});
+}
+
+function getCountry(array, inp) {
+	let value;
+	for (let el of array) {
+		if (el.name.toLowerCase() === inp) {
+			value = el.cities;
+			break;
+		}
+	}
+	return value;
 }
 
 function createCard(img, name, description) {
