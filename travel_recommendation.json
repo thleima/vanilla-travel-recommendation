@@ -6,7 +6,7 @@
       "cities": [
         {
           "name": "Sydney, Australia",
-          "imageUrl": "./media/city-picture.jpg",
+          "imageUrl": "https://cdn.futura-sciences.com/sources/images/dossier/1371/03-1371.jpg",
           "description": "A vibrant city known for its iconic landmarks like the Sydney Opera House and Sydney Harbour Bridge."
         },
         {
