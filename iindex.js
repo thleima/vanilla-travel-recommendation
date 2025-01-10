@@ -45,7 +45,6 @@ function getCountry(array, inp) {
 function handleSearch() {
 	results.innerHTML = "";
 	const input = searchInput.value.trim().toLowerCase();
-	let to_print = [];
 	// ** Search within the keywords object defined
 	for (let theme in searchKeywords) {
 		// ** Check if the word searched, is included in keywords
@@ -53,7 +52,7 @@ function handleSearch() {
 			// ** YES ? Get the element from data
 			// theme = the key to search in data
 			console.log(`data theme is ${theme} :`, data[theme]);
-			if (theme === "beaches" || "temples") {
+			if (theme === "beaches" || theme === "temples") {
 				data[theme].forEach((item) => {
 					results.innerHTML += createCard(
 						item.imageUrl,
@@ -61,28 +60,28 @@ function handleSearch() {
 						item.description
 					);
 				});
-			}
-
-			if (getCountry(data[theme], input)) {
-				to_print = getCountry(data[theme], input);
-				to_print.forEach((item) => {
-					results.innerHTML += createCard(
-						item.imageUrl,
-						item.name,
-						item.description
-					);
-				});
-			} else {
-				to_print = data[theme];
-				to_print.forEach((item) => {
-					for (let city of item.cities) {
+			} else if (theme === "countries") {
+				if (getCountry(data[theme], input)) {
+					to_print = getCountry(data[theme], input);
+					to_print.forEach((item) => {
 						results.innerHTML += createCard(
-							city.imageUrl,
-							city.name,
-							city.description
+							item.imageUrl,
+							item.name,
+							item.description
 						);
-					}
-				});
+					});
+				} else {
+					to_print = data[theme];
+					to_print.forEach((item) => {
+						for (let city of item.cities) {
+							results.innerHTML += createCard(
+								city.imageUrl,
+								city.name,
+								city.description
+							);
+						}
+					});
+				}
 			}
 		}
 	}
