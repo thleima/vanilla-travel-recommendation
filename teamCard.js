@@ -1,3 +1,6 @@
+// This file is just to inject profile card, to get the html lighter
+// Nothing important here
+
 const teamCardContainer = document.querySelector(".team-card-container");
 
 const team = [

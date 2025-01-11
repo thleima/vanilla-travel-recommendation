@@ -1,3 +1,5 @@
+// Take care of the navigation for the navbar "Home - About - Contact"
+// Does a React kind of thing with Page as Component and SPA
 const homeComponent = document.querySelector("#home-component");
 const aboutComponent = document.querySelector("#about-component");
 const contactComponent = document.querySelector("#contact-component");
