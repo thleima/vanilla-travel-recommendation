@@ -1,7 +1,6 @@
 const btnSearch = document.querySelector("#btn-search");
 const btnClear = document.querySelector("#btn-clear");
 const results = document.querySelector("#home-results");
-
 const searchInput = document.querySelector("#search-input");
 
 // Fetch data
@@ -20,12 +19,6 @@ async function fetchData(url) {
 const file = "./travel_recommendation.json";
 fetchData(file);
 
-const getPlurialCategories = (category) => {
-	if (category.endsWith("h")) return "beaches";
-	if (category.endsWith("e")) return "temples";
-	return category;
-};
-
 const searchThroughRecommendations = () => {
 	results.innerHTML = "";
 	const input = searchInput.value.trim().toLowerCase();
@@ -40,16 +33,19 @@ const searchThroughRecommendations = () => {
 	// Search by category (beach(es) temple(s))
 	if (input.match(categoriesRegex)) {
 		const pluralCategory = getPlurialCategories(input);
-		console.log(data[pluralCategory]);
-		iterateAndDisplay(data[pluralCategory]);
+		const categories = data[pluralCategory];
+		iterateAndDisplay(categories);
 		return;
 	}
 
 	// Special for country / countries
 	if (input.match(categoriesRegex) && input.startsWith("count")) {
-		let arr = data["countries"].map((el) => el.cities);
-		let newarr = arr.reduce((initial, curr) => initial.concat(curr), []);
-		iterateAndDisplay(newarr);
+		let cities = data["countries"].map((el) => el.cities);
+		let mergedCities = cities.reduce(
+			(initial, curr) => initial.concat(curr),
+			[]
+		);
+		iterateAndDisplay(mergedCities);
 		return;
 	}
 
@@ -63,6 +59,12 @@ const searchThroughRecommendations = () => {
 			}
 		});
 	}
+};
+
+const getPlurialCategories = (category) => {
+	if (category.endsWith("h")) return "beaches";
+	if (category.endsWith("e")) return "temples";
+	return category;
 };
 
 function iterateAndDisplay(array) {
